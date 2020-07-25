@@ -3,6 +3,9 @@ import json
 import os
 import socket
 import datetime
+import time
+
+
 
 def getIp():
     ip = os.popen('curl -s ifconfig.me').readline()
@@ -27,6 +30,14 @@ def createTransaction(startAddress, amount, fee, endAddress, utcTime):
 
 def getBalance():
     pass
+
+class block:
+    def __init__(self, previousHash, bottomHash, transactions):
+        self.previousHash = previousHash
+        self.bottomHash = bottomHash
+        self.transactions = transactions
+    def append(self, transaction):
+        self.transactions.append(transactions)
 
 blockStatus = {
     "upToDate":False,
